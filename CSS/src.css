@@ -1,0 +1,640 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'georgina, times new roman', serif;
+    color: white;
+    background-color: #05080d;
+}
+
+/* =========================================
+   PANTALLA DE CARGA Y ANIMACIONES
+========================================= */
+.carga {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #101b2c 0%, #080d14 48%, #05080d 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 9999;
+    /* La carga se llena en 3.5s, se desvanece a los 3.8s */
+    animation: desaparecer 0.8s ease 3.8s forwards;
+}
+
+.carga::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: rgba(205, 157, 67, 0.07);
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.carga-contenido {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: aparecer 1s ease;
+}
+
+.logo {
+    width: 300px;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 12px rgba(218, 170, 82, 0.35));
+    animation: logoEntrada 1.2s ease;
+}
+
+.carga-contenido h1 {
+    font-size: clamp(35px, 5vw, 70px);
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: #f5f0e8;
+    margin-bottom: 16px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+.slogan {
+    font-family: Arial, sans-serif;
+    font-size: clamp(11px, 1.5vw, 16px);
+    letter-spacing: 5px;
+    color: #e0b45f;
+    margin-bottom: 35px;
+}
+
+.cargando {
+    width: 530px;
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.linea {
+    height: 2px;
+    flex: 1;
+    max-width: 120px;
+    background: #d8aa55;
+    box-shadow: 0 0 7px rgba(216, 170, 85, 0.4);
+}
+
+.texto-cargando {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 5px;
+    color: #f5f0e8;
+    white-space: nowrap;
+}
+
+.puntos::after {
+    content: "";
+    animation: puntos 1.5s infinite;
+}
+
+@keyframes puntos {
+    0% {
+        content: "";
+    }
+
+    25% {
+        content: ".";
+    }
+
+    50% {
+        content: "..";
+    }
+
+    75% {
+        content: "...";
+    }
+
+    100% {
+        content: "";
+    }
+}
+
+.barra {
+    width: 420px;
+    max-width: 75%;
+    height: 14px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    padding: 2px;
+    background: rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+}
+
+.progreso {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #c7933e, #f1c56c, #c7933e);
+    box-shadow: 0 0 12px rgba(221, 173, 81, 0.6);
+    animation: cargar 3.5s ease forwards;
+}
+
+@keyframes cargar {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoEntrada {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes desaparecer {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    99% {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+        /* Evita que siga bloqueando la pantalla */
+    }
+}
+
+/* LA PÁGINA APARECE MIENTRAS LA CARGA SE DESVANECE */
+.pagina {
+    min-height: 100vh;
+    opacity: 0;
+    animation: mostrarPagina 0.8s ease 3.8s forwards;
+}
+
+@keyframes mostrarPagina {
+    to {
+        opacity: 1;
+    }
+}
+
+/* La página ahora se muestra directamente sin esperas */
+.pagina {
+    min-height: 100vh;
+    opacity: 1;
+}
+
+header {
+    min-height: 90px;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0a1019;
+    border-bottom: 1px solid rgba(218, 170, 82, 0.25);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente los enlaces y el botón */
+    gap: 25px;
+    /* Separación entre los ítems del menú */
+}
+
+/* Estilos de los enlaces */
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #c79c4a;
+}
+
+/* Estilos específicos para el botón dentro del nav */
+nav .boton {
+    background-color: #d8aa55;
+    color: #000000;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+nav .boton:hover {
+    background-color: #e0b45f;
+}
+
+.loga {
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    line-height: 1;
+}
+
+.hero {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+    background: linear-gradient(90deg, rgba(5, 9, 15, 0.98), rgba(5, 9, 15, 0.82), rgba(5, 9, 15, 0.65)), url(../imagenes/src.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-texto {
+    max-width: 700px;
+}
+
+.etiqueta {
+    font-family: Arial, sans-serif;
+    color: #d8aa55;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.hero h2 {
+    margin-top: 20px;
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: 1.05;
+    font-weight: 500;
+    color: #f4f0e9;
+}
+
+.hero h2 span {
+    color: #d8aa55;
+}
+
+.hero p {
+    margin-top: 25px;
+    max-width: 600px;
+    color: #c8cbd0;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   BOTONES HERO
+========================================= */
+.botones {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.boton,
+.boton-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.boton {
+    color: #111;
+    background: #d8aa55;
+}
+
+.boton:hover {
+    background: #f0c875;
+    border-color: #f0c875;
+    transform: translateY(-2px);
+}
+
+.boton-secundario {
+    background: transparent;
+    color: #d8aa55;
+    border: 1px solid #d8aa55;
+}
+
+.boton-secundario:hover {
+    background: #d8aa55;
+    color: #101010;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+    header {
+        width: 78%;
+        min-height: 118px;
+        margin: 0 auto;
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(18, 27, 52, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 65px;
+    }
+
+    nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 230px;
+    }
+
+    .eslogan {
+        letter-spacing: 3px;
+    }
+}
+
+/* =========================================
+   SECCIÓN SOBRE SCARLETH (ESTILO TARJETA)
+========================================= */
+.seccion-sobre-scarleth {
+    background-color: #080d14;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-sobre {
+    background-color: #0e141f;
+    border: 1px solid rgba(216, 170, 85, 0.15);
+    border-radius: 20px;
+    padding: 60px 40px;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge-autor {
+    border: 1px solid rgba(216, 170, 85, 0.4);
+    color: #d8aa55;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 25px;
+}
+
+.contenedor-sobre h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(28px, 4vw, 42px);
+    color: #f4f0e9;
+    font-weight: 400;
+    line-height: 1.25;
+    max-width: 700px;
+    margin-bottom: 25px;
+}
+
+.texto-descripcion {
+    color: #a3aab5;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 620px;
+    margin-bottom: 15px;
+}
+
+.subtexto-acompaniamiento {
+    color: #c8cbd0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.botones-sobre {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-reunion {
+    background: #c79c4a;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 15px rgba(199, 156, 74, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-reunion:hover {
+    background: #d8aa55;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(216, 170, 85, 0.4);
+}
+
+.btn-reunion .flecha {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.btn-whatsapp {
+    background: #12cc66;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background: #10b85c;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(18, 204, 102, 0.3);
+}
+
+.pie-pagina {
+    background-color: #060a10;
+    border-top: 1px solid rgba(216, 170, 85, 0.2);
+    color: #c8cbd0;
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+}
+
+.contenedor-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6% 40px 6%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.columna-footer h3 {
+    color: #f4f0e9;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.columna-footer h3::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #d8aa55;
+    margin-top: 8px;
+}
+
+.columna-footer p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #a3aab5;
+    margin-bottom: 10px;
+}
+
+.loga-footer {
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.loga-footer .dorado {
+    color: #d8aa55;
+}
+
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.columna-footer ul li {
+    margin-bottom: 12px;
+}
+
+.columna-footer ul li a {
+    color: #a3aab5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.columna-footer ul li a:hover {
+    color: #d8aa55;
+    padding-left: 5px;
+}
+
+.btn-footer-wa {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: transparent;
+    border: 1px solid #12cc66;
+    color: #12cc66;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-footer-wa:hover {
+    background: #12cc66;
+    color: #ffffff;
+}
+
+.copyright-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    padding: 20px 0;
+    background-color: #04070b;
+}
+
+.copyright-footer p {
+    font-size: 13px;
+    color: #6c757d;
+    margin: 0;
+}

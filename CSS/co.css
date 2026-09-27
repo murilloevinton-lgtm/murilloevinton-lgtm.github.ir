@@ -1,0 +1,329 @@
+/* ========================= RESET & GLOBAL ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #080D14;
+    color: #ffffff;
+}
+
+/* ========================= HEADER & NAV ========================= */
+header {
+    min-height: 90px;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0a1019;
+    border-bottom: 1px solid rgba(218, 170, 82, 0.25);
+}
+
+.loga {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #c79c4a;
+}
+
+/* ========================= BOTONES GLOBALES ========================= */
+.boton,
+nav .boton {
+    background-color: #d8aa55;
+    color: #080D14;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.boton:hover,
+nav .boton:hover {
+    background-color: #f0c875;
+    transform: translateY(-2px);
+}
+
+/* ========================= HERO ========================= */
+.hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    background-color: #080D14;
+    background-image: radial-gradient(circle at 80% 40%, rgba(216, 170, 85, 0.12), transparent 40%);
+}
+
+.hero-texto {
+    max-width: 750px;
+}
+
+.subtitulo {
+    color: #D8AA55;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    color: #FFFFFF;
+    font-size: 55px;
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #D8AA55;
+}
+
+.hero p {
+    color: #C5C5C5;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+/* ========================= SOBRE NOSOTROS ========================= */
+.sobre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    padding: 90px 10%;
+    background-color: #101B2C;
+}
+
+.sobre-texto {
+    width: 60%;
+}
+
+.sobre h2 {
+    color: #FFFFFF;
+    font-size: 38px;
+    margin: 18px 0 25px;
+}
+
+.sobre p {
+    color: #C5C5C5;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* ========================= TARJETA ========================= */
+.tarjeta {
+    width: 330px;
+    padding: 40px;
+    text-align: center;
+    background-color: #080D14;
+    border: 1px solid #D8AA55;
+}
+
+.icono {
+    color: #D8AA55;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.tarjeta h3 {
+    color: #FFFFFF;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.tarjeta p {
+    color: #C5C5C5;
+    line-height: 1.6;
+}
+
+/* ========================= PROCESO ========================= */
+.proceso {
+    padding: 90px 10%;
+    text-align: center;
+    background-color: #080D14;
+}
+
+.proceso h2 {
+    color: #FFFFFF;
+    font-size: 38px;
+    margin: 18px 0 50px;
+}
+
+.pasos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.paso {
+    padding: 30px 20px;
+    background-color: #101B2C;
+    border-top: 2px solid #D8AA55;
+}
+
+.paso>span {
+    color: #D8AA55;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.paso h3 {
+    color: #FFFFFF;
+    margin: 15px 0;
+}
+
+.paso p {
+    color: #C5C5C5;
+    line-height: 1.6;
+}
+
+/* ========================= SECCIÓN FINAL ========================= */
+.final {
+    padding: 90px 20px;
+    text-align: center;
+    background-color: #101B2C;
+    background-image: radial-gradient(circle, rgba(216, 170, 85, 0.12), transparent 60%);
+}
+
+.final h2 {
+    color: #FFFFFF;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.final p {
+    color: #C5C5C5;
+    margin-bottom: 30px;
+}
+
+/* ========================= PIE DE PÁGINA (FOOTER) ========================= */
+.pie-pagina {
+    background-color: #060a10;
+    border-top: 1px solid rgba(216, 170, 85, 0.2);
+    color: #c8cbd0;
+    padding-top: 60px;
+}
+
+.contenedor-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6% 40px 6%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.columna-footer h3 {
+    color: #f4f0e9;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.columna-footer h3::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #d8aa55;
+    margin-top: 8px;
+}
+
+.columna-footer p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #a3aab5;
+    margin-bottom: 10px;
+}
+
+.loga-footer {
+    font-family: 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.loga-footer .dorado {
+    color: #d8aa55;
+}
+
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.columna-footer ul li {
+    margin-bottom: 12px;
+}
+
+.columna-footer ul li a {
+    color: #a3aab5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.columna-footer ul li a:hover {
+    color: #d8aa55;
+    padding-left: 5px;
+}
+
+.btn-footer-wa {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: transparent;
+    border: 1px solid #12cc66;
+    color: #12cc66;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-footer-wa:hover {
+    background: #12cc66;
+    color: #ffffff;
+}
+
+.copyright-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    padding: 20px 0;
+    background-color: #04070b;
+}
+
+.copyright-footer p {
+    font-size: 13px;
+    color: #6c757d;
+    margin: 0;
+}

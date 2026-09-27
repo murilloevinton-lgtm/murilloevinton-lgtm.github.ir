@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Asesoría Jurídica</title>
+    <link rel="stylesheet" href="../CSS/contac.css">
+</head>
+
+<body>
+    <main class="pagina">
+        <header>
+            <div class="loga">
+                <span>ASESORIA</span>
+                <br>
+                <span>JURIDICA</span>
+            </div>
+
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a href="servici.html">Servicios</a>
+                <a href="#">Contacto</a>
+                <button type="button" class="boton" onclick="window.location.href='formu.html'">Agenda tu cita</button>
+            </nav>
+        </header>
+
+
+
+
+        <!-- SECCIÓN DE CONTACTO Y FORMULARIO -->
+        <section class="seccion-contacto">
+            <div class="contacto-header">
+                <span class="badge-contacto">CONTACTO</span>
+                <h2>Cuénteme su caso <span>hoy mismo</span></h2>
+                <p>Llene el formulario con los detalles de su situación y le responderemos personalmente para agendar su
+                    cita.
+                </p>
+            </div>
+
+            <div class="contenedor-contacto">
+                <!-- Columna Izquierda -->
+                <div class="info-contacto">
+                    <h3>Información de contacto</h3>
+
+                    <div class="item-contacto">
+                        <span class="icono">👤</span>
+                        <p>ASESORIA LEGAL</p>
+                    </div>
+
+                    <div class="item-contacto">
+                        <span class="icono">📞</span>
+                        <p>+57 312 7362067</p>
+                    </div>
+
+                    <div class="item-contacto">
+                        <span class="icono">✉️</span>
+                        <p>murilloguaitoto@gmail.com</p>
+                    </div>
+
+                    <div class="item-contacto">
+                        <span class="icono">📍</span>
+                        <p>Calle 32E N° 80B-58, La Castellana, Medellín 050033</p>
+                    </div>
+
+                    <div class="item-contacto">
+                        <span class="icono">🕒</span>
+                        <p>
+                            Lunes a viernes: 9:00 AM – 5:00 PM<br>
+                            Sábados: 9:00 AM – 1:00 PM
+                        </p>
+                    </div>
+
+                    <div class="botones-contacto-info">
+                        <a href="https://wa.me/573127362067" target="_blank" class="btn-wa">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+                            </svg>
+                            Escribir por WhatsApp
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="tarjeta-formulario">
+                    <form action="#" method="POST">
+                        <div class="grupo-campo">
+                            <label>Nombre completo</label>
+                            <input type="text" placeholder="Su nombre" required>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label>Teléfono</label>
+                            <input type="tel" placeholder="Ej: 300 123 4567" required>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label>Correo electrónico</label>
+                            <input type="email" placeholder="Su correo electrónico" required>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label>Tipo de caso</label>
+                            <select required>
+                                <option value="" disabled selected>Seleccione...</option>
+                                <option value="civil">Derecho Civil</option>
+                                <option value="penal">Derecho Penal</option>
+                                <option value="laboral">Derecho Laboral</option>
+                                <option value="familiar">Derecho Familiar</option>
+                                <option value="comercial">Derecho Comercial</option>
+                                <option value="administrativo">Derecho Administrativo</option>
+                                <option value="disciplinario">Derecho Disciplinario</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label>Modalidad de atención</label>
+                            <select required>
+                                <option value="" disabled selected>Seleccione...</option>
+                                <option value="virtual">💻 Virtual ($140.000 COP)</option>
+                                <option value="presencial">🏢 Presencial ($180.000 COP)</option>
+                                <option value="domicilio">🚗 A domicilio ($250.000 COP)</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-checkbox">
+                            <input type="checkbox" id="urgencia">
+                            <label for="urgencia">¿Es una urgencia o no puede asistir en horario laboral?</label>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label>Describa su situación</label>
+                            <textarea rows="4" placeholder="Describa brevemente su caso..."></textarea>
+                        </div>
+
+                        <div class="grupo-checkbox">
+                            <input type="checkbox" id="privacidad" required>
+                            <label for="privacidad">
+                                Autorizo el tratamiento de mis datos personales conforme a la Ley 1581 de 2012. Ver <a
+                                    href="#">política de privacidad</a>.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-enviar-formulario">
+                            Quiero que me asesoren →
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<footer class="pie-pagina">
+    <div class="contenedor-footer">
+        <div class="columna-footer branding">
+            <div class="loga-footer">
+                <span>ASESORIA</span><br>
+                <span class="dorado">JURIDICA</span>
+            </div>
+            <p>Acompañamiento profesional, responsable y personalizado para proteger tus derechos y brindarte
+                tranquilidad.</p>
+        </div>
+
+        <div class="columna-footer">
+            <h3>Navegación</h3>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="servici.html">Servicios</a></li>
+                <li><a href="conoce.html">Sobre Scarleth</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="columna-footer">
+            <h3>Áreas Legales</h3>
+            <ul>
+                <li><a href="drolab.html">Derecho Laboral</a></li>
+                <li><a href="derecv.html">Derecho Civil</a></li>
+                <li><a href="derepn.html">Derecho Penal</a></li>
+                <li><a href="drofml.html">Derecho Familiar</a></li>
+                <li><a href="droadmi.html">Derecho Administrativo</a></li>
+                <li><a href="drodis.html">Derecho Diciplinario</a></li>
+                <li><a href="drocm.html">Derecho Comercial</a></li>
+            </ul>
+        </div>
+
+        <div class="columna-footer">
+            <h3>Contacto</h3>
+            <p>📱 +57 311 3616740</p>
+            <p>📍 Medellín, Colombia</p>
+            <a href="https://wa.me/573113616740" target="_blank" class="btn-footer-wa">
+                Escribir a WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <div class="copyright-footer">
+        <p>&copy; 2026 Asesoría Jurídica Scarleth Samanta. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+</html>
